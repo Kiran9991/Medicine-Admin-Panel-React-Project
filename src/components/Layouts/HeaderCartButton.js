@@ -1,14 +1,16 @@
 // import classes from './HeaderCartButton.module.css'
 import { useContext } from "react";
-
-import MedicineContext from "../contexts/medicine-context";
+import CartContext from "../contexts/cart-context";
 
 const HeaderCartButton = (props) => {
-    const medicieCtx = useContext(MedicineContext)
+    const cartCtx = useContext(CartContext)
 
     let quantity = 0;
 
-    console.log('car',medicieCtx.cartItems)
+    cartCtx.cartItems.forEach((item) => {
+      quantity += item.quantity;
+    })
+
   return (
     <button onClick={props.onClick}>
       <span>Your Cart - </span>

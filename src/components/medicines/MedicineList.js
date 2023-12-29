@@ -7,13 +7,12 @@ import MedicineItem from "./MedicineItem";
 const MedicineList = (props) => {
   const medicineCtx = useContext(MedicineContext);
 
-  console.log(medicineCtx.medicines);
   return (
     <Card>
       <h5>List of Products</h5>
       <ul>
         {medicineCtx.medicines.map((item) => (
-          <MedicineItem items={item} />
+          <MedicineItem items={item} key={Math.random()}/>
         ))}
       </ul>
     </Card>

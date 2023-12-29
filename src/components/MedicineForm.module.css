@@ -1,12 +1,20 @@
-/* MedicineForm.css */
 form {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
   margin: auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+formContainer {
+  display: flex;
+  padding: 5px;
+}
+
+formDiv {
+  display: flex;
+  justify-content: right;
 }
 
 label {
@@ -32,3 +40,5 @@ button {
 button:hover {
   background-color: #45a049;
 }
+
+

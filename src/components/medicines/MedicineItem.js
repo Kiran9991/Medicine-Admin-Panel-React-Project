@@ -1,24 +1,23 @@
 import { useContext } from "react";
-
-import MedicineContext from "../contexts/medicine-context";
-
+import CartContext from "../contexts/cart-context";
 
 const MedicineItem = (props) => {
-  const cartCtx = useContext(MedicineContext)
+  const { items } = props;
+  const cartCtx = useContext(CartContext)
 
   const addToCart = (e) => {
-    let name = e.target.value;
-    cartCtx.medicines.forEach(item => {
-      if(item.medicineName === name) {
-        cartCtx.addItem(item)
-        console.log(item)
-      }
-    })
+    const obj = {
+      medicineName: items.medicineName,
+      price: items.price,
+      quantity: 1
+    }
+    cartCtx.addItem(obj);
   }
+
   return (
     <li>
-      {props.items.medicineName} - {props.items.price} - x1 
-      <button value={props.items.medicineName} onClick={addToCart}>Add to Cart</button>
+      {items.medicineName} - {items.price} - x1 
+      <button value={items.medicineName} onClick={addToCart}>Add to Cart</button>
     </li>
   );
 };
